@@ -17,7 +17,8 @@ Route::post('/tasks/{task}/subtasks', [SubtaskController::class, 'store'])->name
 Route::post('/subtasks/{subtask}/toggle-status', [SubTaskController::class, 'toggleStatus'])->name('subtasks.toggleStatus');
 Route::get('/subtasks/{subtask}/edit', [SubTaskController::class, 'edit'])->name('subtasks.edit');
 Route::put('/subtasks/{id}', [SubtaskController::class, 'update'])->name('subtasks.update');
-Route::delete('/subtasks/{subtask}', [SubtaskController::class, 'destroy'])->name('subtasks.destroy');
+Route::delete('/subtasks/{subtask}', [SubTaskController::class, 'destroy'])->name('subtasks.destroy');  
+
 
 
 

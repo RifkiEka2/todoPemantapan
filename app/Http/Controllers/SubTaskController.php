@@ -95,11 +95,12 @@ class SubTaskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Subtask $subtask)
     {
-        $subtask = SubTask::findOrFail($id); // Mencari subtask berdasarkan ID
-        $subtask->delete(); // Menghapus subtask
-        return redirect()->route('tasks.show', $subtask->task_id); // Redirect kembali ke halaman task
+        // Pastikan hanya menghapus subtask yang sesuai
+        $subtask->delete();
+    
+        return redirect()->route('tasks.show', $subtask->task_id)->with('success', 'Subtask berhasil dihapus!');
     }
     
 
